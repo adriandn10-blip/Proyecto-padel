@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club de Padel</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula el archivo CSS -->
+
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <h1>Club de Padel "La Galera"</h1>
+
+        <div>
+            <nav>
+                <a href="#">Inicio</a>
+                <a href="#">Servicios</a>
+                <a href="galeria.html">Galería</a>
+                <a href="formulario.html">Formulario</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <!-- Sección de introducción -->
+        <section class="intro" data-aos="fade-up">
+            <h2>Bienvenido a nuestro Club de Padel</h2>
+            <p>Ofrecemos las mejores instalaciones y clases de pádel para todos los niveles. ¡Ven y disfruta de este
+                increíble deporte con nosotros!</p>
+        </section>
+
+        <!-- Sección de servicios -->
+        <section class="services">
+            <div class="service" data-aos="fade-right">
+                <h3>Clases de Padel</h3>
+                <p>Aprende desde lo más básico hasta técnicas avanzadas con nuestros entrenadores profesionales.</p>
+            </div>
+            <div class="service" data-aos="fade-up">
+                <h3>Alquiler de Pistas</h3>
+                <p>Alquila nuestras modernas pistas para jugar con tus amigos o familiares.</p>
+            </div>
+            <div class="service" data-aos="fade-left">
+                <h3>Tienda de Padel</h3>
+                <p>Todo lo que necesitas: raquetas, pelotas, ropa deportiva y más.</p>
+            </div>
+        </section>
+
+
+        <!-- Sección de galería -->
+        <section class="gallery">
+            <div class="gallery-item" data-aos="zoom-in">
+                <img src="img/OIP.jpg" alt="Imagen 1">
+            </div>
+            <div class="gallery-item" data-aos="zoom-in">
+                <img src="img/OIP (1).jpg" alt="Imagen 2">
+            </div>
+            <div class="gallery-item" data-aos="zoom-in">
+                <img src="img/OIP (2).jpg" alt="Imagen 3">
+            </div>
+        </section>
+
+        <!-- Sección de Formulario -->
+        <section id="Formulario">
+            <h2 data-aos="fade-up">Formulario</h2>
+            <form class="contact-form" data-aos="fade-up">
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="email" placeholder="Tu correo" required>
+                <textarea placeholder="Tu mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </div>
+
+
+    <!-- Logo para activar el foro -->
+    <div class="logo-container" id="forumLogo">
+        <img src="img/descargar (1).jpg" alt="Logo Foro" class="logo" />
+    </div>
+
+    <!-- Foro de Dudas (inicialmente oculto) -->
+    <div class="forum-container" id="forumContainer" style="display: none;">
+        <h2>Foro de Dudas</h2>
+        <form id="doubtForm">
+            <textarea id="doubtInput" placeholder="Escribe tu duda..." rows="4" required></textarea><br>
+            <button type="submit" class="btn btn-primary">Publicar Duda</button>
+        </form>
+        <div id="forumPosts">
+            <!-- Aquí se mostrarán las dudas -->
+        </div>
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/dc37a738ae.js" crossorigin="anonymous"></script>
+    <script src="js/open-side-menu.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/validate-log-in-form.js"></script>
+
+
+    <!-- Scripts para AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Activar/desactivar el foro al hacer clic en el logo
+        document.getElementById("forumLogo").addEventListener("click", function () {
+            var forumContainer = document.getElementById("forumContainer");
+            if (forumContainer.style.display === "none") {
+                forumContainer.style.display = "block";
+            } else {
+                forumContainer.style.display = "none";
+            }
+        });
+
+        // Enviar una duda y agregarla al foro
+        document.getElementById("doubtForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
+
+            // Obtener el contenido del textarea
+            var doubtText = document.getElementById("doubtInput").value;
+
+            if (doubtText.trim() !== "") {
+                // Crear un nuevo div para mostrar la duda
+                var newDoubt = document.createElement("div");
+                newDoubt.classList.add("forum-post");
+                newDoubt.innerHTML = "<p>" + doubtText + "</p>";
+
+                // Agregar la nueva duda al contenedor de dudas
+                document.getElementById("forumPosts").appendChild(newDoubt);
+
+                // Limpiar el textarea
+                document.getElementById("doubtInput").value = "";
+            }
+        });
+    </script>
+
+    <!-- Enlace a Bootstrap JS (si lo usas) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
+
+
+<!-- Número de teléfono -->
+<section class="contact-info">
+    <h3>Contáctanos</h3>
+    <p>Para más información, llámanos al:</p>
+    <p class="phone-number">+34 912 345 678</p>
+</section>
+</div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Club de Padel "La Galera" | Todos los derechos reservados</p>
+    <p><a href="https://www.padelnuestro.com/" target="_blank" class="footer-link">Visita nuestra página de Padel</a>
+    </p>
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Inicia AOS
+    AOS.init();
+</script>
+</body>
+
+</html>
